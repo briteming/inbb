@@ -14,7 +14,7 @@ export async function markdownToHtml(markdown: string) {
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeStringify, { allowDangerousHtml: true }) 
     .use(rehypePrism)
-    .use(html, { sanitize: false })
+    .use(html)
     .process(markdown);
   return result.toString().replace(/@@baseUrl@@/g, process.env.baseUrl || '');
 }
